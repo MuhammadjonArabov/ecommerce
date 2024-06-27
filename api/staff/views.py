@@ -14,7 +14,7 @@ class StaffCreateSerializers(CreateAPIView):
 class StaffAPIView(ListAPIView):
     queryset = User.objects.all()
     serializer_class = StaffSerializers
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
 
 class StaffDetailAPIView(RetrieveAPIView):

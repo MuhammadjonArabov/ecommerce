@@ -56,14 +56,17 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "rest_framework",
     "rest_framework.authtoken",
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     "corsheaders",
     "drf_spectacular",
+    'django_filters',
+    'drf_base64'
 ]
 
 LOCAL_APPS = [
     "common.users",
-    # "common.category",
-    # Your stuff: custom apps go here
+    "common.category",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -147,7 +150,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "common.users.context_processors.allauth_settings",  # Yangilangan yo'l
+                #"common.users.context_processors.allauth_settings",  # Yangilangan yo'l
             ],
         },
     },

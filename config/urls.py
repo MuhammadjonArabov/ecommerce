@@ -20,7 +20,7 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    # path("accounts/", include("allauth.urls")),
+     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     # ...
     # Media files
@@ -30,8 +30,8 @@ urlpatterns = [
 # API URLS
 urlpatterns += [
     # API base url
-    #path("api/", include("config.router")),
-    path("api/staff", include("api.staff.urls")),
+
+    path("api/", include("api.urls")),
     # DRF auth token
     path("api/auth-token/", obtain_auth_token),
     path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),
