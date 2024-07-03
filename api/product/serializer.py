@@ -4,18 +4,17 @@ from config.settings.base import env
 from common.product.models import Product, ProductImage
 
 
-class ProductCreateSerializers(serializers.ModelSerializer):
+class ProductCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'guid', 'title', 'price', 'description', 'quantity', 'category']
 
 
-class ProductListSerializers(serializers.ModelSerializer):
+class ProductListSerializer(serializers.ModelSerializer):
     productImage = serializers.SerializerMethodField()
 
 
-
-class ProductShortSerializers(serializers.ModelSerializer):
+class ProductShortSerializer(serializers.ModelSerializer):
     warehouse_product_quantity = serializers.SerializerMethodField()
     total_quantity = serializers.SerializerMethodField()
 
@@ -37,7 +36,7 @@ class ProductShortSerializers(serializers.ModelSerializer):
         fields = ['id', 'guid', 'title', 'total_quantity', 'warehouse_product_quantity']
 
 
-class ProductImageListSerializers(serializers.ModelSerializer):
+class ProductImageListSerializer(serializers.ModelSerializer):
     photo = serializers.SerializerMethodField()
 
     def get_photo(self, product):
@@ -50,7 +49,7 @@ class ProductImageListSerializers(serializers.ModelSerializer):
         fields = ['id', 'guid', 'photo', 'isMain']
 
 
-class ProductImageCreateSerializers(serializers.ModelSerializer):
+class ProductImageCreateSerializer(serializers.ModelSerializer):
     photo = Base64ImageField(required=True)
     id = serializers.IntegerField(read_only=True)
     guid = serializers.CharField(read_only=True)

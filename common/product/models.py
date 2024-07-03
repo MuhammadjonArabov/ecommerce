@@ -2,6 +2,9 @@ from django.db import models, transaction
 from common.base import BaseModel
 from config.settings.base import env
 from common.category.models import Category
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Product(BaseModel):
@@ -36,3 +39,15 @@ class ProductImage(BaseModel):
             while transaction.atomic():
                 ProductImage.objects.filter(product=self.product, isMain=True).update(isMain=False)
         super().save(*args, **kwargs)
+
+
+class Comment(BaseModel):
+    user = models.ForeignKey(User, related_name='userComment', on_delete=models.CASCADE, null=True, blank=True)
+    product = models.ForeignKey(Product, related_name='productComment', on_delete=models.CASCADE, null=True, blank=True)
+    text = models.TextField()
+
+    def __str__(self):
+        return {self.id}
+
+    class Meat:
+        ordering = ['-created_at']
