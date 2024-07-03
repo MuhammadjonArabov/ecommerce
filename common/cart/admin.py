@@ -1,12 +1,22 @@
 from django.contrib import admin
-from common.category.models import Category, SubCategory
+from common.cart.models import Cart, CartProduct, Wishlist, WishlistProduct
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(SubCategory)
-class SubCategoryAdmin(admin.ModelAdmin):
+@admin.register(CartProduct)
+class CartProductAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Wishlist)
+class WishlistAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(WishlistProduct)
+class WishlistProductAdmin(admin.ModelAdmin):
     pass
