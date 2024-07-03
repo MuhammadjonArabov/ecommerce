@@ -14,10 +14,10 @@ class Cart(BaseModel):
 
 
 class CartProduct(BaseModel):
+    quantity = models.DecimalField(max_digits=20, decimal_places=6, default=0)
     cart = models.ForeignKey(Cart, related_name='cartCartProduct', on_delete=models.CASCADE, null=True, blank=True)
     product = models.ForeignKey(Product, related_name='productCartProduct', on_delete=models.CASCADE, null=True,
                                 blank=True)
-    quantity = models.DecimalField(max_digits=20, decimal_places=6, default=0)
 
     def __str__(self):
         return f"{self.id}"

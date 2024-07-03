@@ -11,10 +11,10 @@ class Category(BaseModel):
 
 
 class SubCategory(BaseModel):
-    category = models.ForeignKey(Category, related_name='categorySubCategory', on_delete=models.CASCADE, null=True,
-                                 blank=True)
     title = models.CharField(max_length=250)
     photo = models.ImageField(upload_to='categoryImages', null=True, blank=True)
+    category = models.ForeignKey(Category, related_name='categorySubCategory', on_delete=models.CASCADE, null=True,
+                                 blank=True)
 
     def __str__(self):
         return self.title

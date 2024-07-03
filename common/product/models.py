@@ -42,9 +42,9 @@ class ProductImage(BaseModel):
 
 
 class Comment(BaseModel):
+    text = models.TextField()
     user = models.ForeignKey(User, related_name='userComment', on_delete=models.CASCADE, null=True, blank=True)
     product = models.ForeignKey(Product, related_name='productComment', on_delete=models.CASCADE, null=True, blank=True)
-    text = models.TextField()
 
     def __str__(self):
         return {self.id}

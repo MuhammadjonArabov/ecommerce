@@ -3,7 +3,7 @@ from common.product.models import Product, ProductImage
 
 
 @admin.register(Product)
-class productAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'price', 'category']
     list_filter = ['category']
     exclude = ['created_at', 'updated_at']
